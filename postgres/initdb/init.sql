@@ -1,0 +1,3 @@
+CREATE DATABASE habitflow;
+CREATE USER habitflow WITH PASSWORD 'habitflow1234';
+GRANT ALL PRIVILEGES ON DATABASE habitflow TO habitflow;
