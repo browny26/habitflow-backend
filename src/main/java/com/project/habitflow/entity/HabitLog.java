@@ -2,11 +2,12 @@ package com.project.habitflow.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table(name = "habit_logs", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"habit_id", "date"})
+        @UniqueConstraint(columnNames = {"user_id", "habit_id", "date"})
 })
 public class HabitLog {
 
@@ -15,15 +16,20 @@ public class HabitLog {
     private Long id;
 
     @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne(optional = false)
     @JoinColumn(name = "habit_id")
     private Habit habit;
 
     @Column(nullable = false)
-    private Date date;
+    private LocalDate date;
 
     public HabitLog() {}
 
-    public HabitLog(Habit habit, Date date) {
+    public HabitLog(User user, Habit habit, LocalDate date) {
+        this.user = user;
         this.habit = habit;
         this.date = date;
     }
@@ -36,6 +42,14 @@ public class HabitLog {
         this.id = id;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Habit getHabit() {
         return habit;
     }
@@ -44,11 +58,11 @@ public class HabitLog {
         this.habit = habit;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }

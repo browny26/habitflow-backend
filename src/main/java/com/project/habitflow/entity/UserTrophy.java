@@ -3,6 +3,7 @@ package com.project.habitflow.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -26,11 +27,11 @@ public class UserTrophy {
 
     @CreationTimestamp
     @Column(updatable = false, name = "unlocked_at")
-    private Date unlockedAt;
+    private LocalDate unlockedAt;
 
     public UserTrophy() {}
 
-    public UserTrophy(User user, Trophy trophy, Date unlockedAt) {
+    public UserTrophy(User user, Trophy trophy, LocalDate unlockedAt) {
         this.user = user;
         this.trophy = trophy;
         this.unlockedAt = unlockedAt;
