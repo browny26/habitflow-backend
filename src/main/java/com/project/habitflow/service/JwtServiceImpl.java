@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -31,6 +32,12 @@ public class JwtServiceImpl implements JwtService{
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
+    }
+
+    @Override
+    public List<String> extractRoles(String jwt) {
+        Claims claims = extractAllClaims(jwt);
+        return claims.get("roles", List.class);
     }
 
     private Claims extractAllClaims(String token) {
@@ -57,6 +64,7 @@ public class JwtServiceImpl implements JwtService{
 
     @Override
     public String generateToken(Map<String, Object> claims, UserDetails userDetails) {
+
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userDetails.getUsername())

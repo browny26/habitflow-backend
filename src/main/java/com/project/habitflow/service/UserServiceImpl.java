@@ -1,15 +1,23 @@
 package com.project.habitflow.service;
 
 import com.project.habitflow.entity.User;
+import com.project.habitflow.exception.UserNotFoundException;
 import com.project.habitflow.repository.UserRepository;
 import com.project.habitflow.request.PasswordUpdateRequest;
+import com.project.habitflow.request.UserUpdateRequest;
 import com.project.habitflow.response.UserResponse;
+import com.project.habitflow.response.UserStatsResponse;
 import com.project.habitflow.util.FindAuthenticatedUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -29,12 +37,7 @@ public class UserServiceImpl implements UserService{
     @Transactional(readOnly = true)
     public UserResponse getUserInfo() {
         User user = findAuthenticatedUser.getAuthenticatedUser();
-        return new UserResponse(
-                user.getId(),
-                user.getFirstName() + " " + user.getLastName(),
-                user.getEmail(),
-                user.getRole()
-        );
+        return UserMapper.toResponse(user);
     }
 
     @Override
@@ -46,6 +49,86 @@ public class UserServiceImpl implements UserService{
         }
 
         userRepository.delete(user);
+    }
+
+    @Override
+    public List<UserResponse> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(UserMapper::toResponse)
+                .toList();
+    }
+
+
+    @Override
+    public UserResponse getUserById(Long id) {
+        return userRepository.findById(id).map(UserMapper::toResponse)
+                .orElseThrow(() -> new UserNotFoundException(id));
+    }
+
+    @Override
+    @Transactional
+    public UserResponse updateCurrentUser(UserUpdateRequest request) {
+        User user = findAuthenticatedUser.getAuthenticatedUser();
+        updateFields(user, request);
+        return toResponse(userRepository.save(user));
+    }
+
+    @Override
+    @Transactional
+    public UserResponse updateUserById(Long id, UserUpdateRequest request) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
+        updateFields(user, request);
+        return toResponse(userRepository.save(user));
+    }
+
+    @Override
+    @Transactional
+    public void deleteUserById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
+        userRepository.delete(user);
+    }
+
+    @Override
+    @Transactional
+    public UserResponse changeUserRole(Long id, User.Role role) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
+        user.setRole(role);
+        return toResponse(userRepository.save(user));
+    }
+
+    @Override
+    public List<UserResponse> searchUsersByEmailOrName(String query) {
+        return userRepository.findByEmailContainingIgnoreCaseOrFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(query, query, query)
+                .stream()
+                .map(this::toResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserStatsResponse getUserStatistics() {
+        long totalUsers = userRepository.count();
+        LocalDate latestUser = userRepository.findTopByOrderByCreatedAtDesc()
+                .map(User::getCreatedAt)
+                .orElse(null);
+        return new UserStatsResponse(totalUsers, latestUser);
+    }
+
+    // --- Utility methods ---
+    private UserResponse toResponse(User user) {
+        return new UserResponse(user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getRole());
+    }
+
+    private void updateFields(User user, UserUpdateRequest request) {
+        if (request.getFirstName() != null) user.setFirstName(request.getFirstName());
+        if (request.getLastName() != null) user.setLastName(request.getLastName());
+        if (request.getEmail() != null) user.setEmail(request.getEmail());
     }
 
     @Override
@@ -93,4 +176,17 @@ public class UserServiceImpl implements UserService{
 
         return false;
     }
+
+    public class UserMapper {
+        public static UserResponse toResponse(User user) {
+            return new UserResponse(
+                    user.getId(),
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getEmail(),
+                    user.getRole()
+            );
+        }
+    }
+
 }

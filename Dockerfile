@@ -14,5 +14,8 @@ RUN ./mvnw dependency:go-offline
 # Copia il codice sorgente
 COPY src ./src
 
-# Avvia l'applicazione Spring Boot
-CMD ["./mvnw", "spring-boot:run"]
+# Build del JAR
+RUN ./mvnw package -DskipTests
+
+# Avvia il JAR
+CMD ["java", "-jar", "target/habitflow-0.0.1-SNAPSHOT.jar"]

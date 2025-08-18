@@ -8,15 +8,18 @@ public class UserResponse {
 
     private long id;
 
-    private String fullName;
+    private String firstName;
+
+    private String lastName;
 
     private String email;
 
     private User.Role role;
 
-    public UserResponse(long id, String fullName, String email, User.Role role) {
+    public UserResponse(long id, String firstName, String lastName, String email, User.Role role) {
         this.id = id;
-        this.fullName = fullName;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.role = role;
     }
@@ -29,12 +32,20 @@ public class UserResponse {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {

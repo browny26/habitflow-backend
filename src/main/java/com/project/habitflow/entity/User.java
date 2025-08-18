@@ -160,4 +160,12 @@ public class User implements UserDetails {
     public List<Habit> getHabits() {
         return habits;
     }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
+    }
 }

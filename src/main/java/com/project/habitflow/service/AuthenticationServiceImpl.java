@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -43,7 +44,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     @Transactional(readOnly = true)
     public AuthenticationResponse login(AuthenticationRequest request) {
-
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
@@ -51,7 +51,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
 
-        String jwtToken = jwtService.generateToken(new HashMap<>(), user);
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", List.of(user.getRole().name()));
+
+        String jwtToken = jwtService.generateToken(claims, user);
 
         return new AuthenticationResponse(jwtToken);
     }
