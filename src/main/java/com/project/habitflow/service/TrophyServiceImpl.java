@@ -8,6 +8,7 @@ import com.project.habitflow.repository.UserTrophyRepository;
 import com.project.habitflow.service.TrophyService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class TrophyServiceImpl implements TrophyService {
             return userTrophyRepository.findByUserAndTrophy(user, trophy);
         }
 
-        UserTrophy userTrophy = new UserTrophy(user, trophy, LocalDateTime.now());
+        UserTrophy userTrophy = new UserTrophy(user, trophy, LocalDate.now());
         return userTrophyRepository.save(userTrophy);
     }
 
