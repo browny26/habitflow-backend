@@ -1,4 +1,4 @@
-package com.project.habitflow.service.impl;
+package com.project.habitflow.service;
 
 import com.project.habitflow.entity.SubscriptionPlan;
 import com.project.habitflow.repository.SubscriptionPlanRepository;

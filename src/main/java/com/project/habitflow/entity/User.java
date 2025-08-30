@@ -1,5 +1,6 @@
 package com.project.habitflow.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -8,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +54,12 @@ public class User implements UserDetails {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subscription_plan_id")
+    @JsonIgnore
     private SubscriptionPlan subscription;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Habit> habits = new ArrayList<>();
 
     public User() {}
 
@@ -141,5 +148,27 @@ public class User implements UserDetails {
 
     public void setSubscription(SubscriptionPlan subscription) {
         this.subscription = subscription;
+    }
+
+    public int getLongestStreak() {
+        // logica per calcolare la streak più lunga
+        return 0; // placeholder
+    }
+
+    public int getTotalHabitLogs() {
+        // logica per contare tutti i log
+        return 0; // placeholder
+    }
+
+    public List<Habit> getHabits() {
+        return habits;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
     }
 }

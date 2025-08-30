@@ -8,10 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 public interface HabitService {
-    Habit createHabit(User user, String name);
-    Habit updateHabit(User user, Habit habit);
-    void deleteHabit(User user, Habit habit);
+    Habit createHabit(Habit habit, User user);
+    Habit updateHabit(Long id, Habit updatedHabit, User user);
+    void deleteHabit(Long id, User user);
+    List<Habit> getHabits(User user);
     void checkHabit(User user, Habit habit, LocalDate date);
-    List<Habit> getHabitsForUser(User user);
-
+    Habit getHabitById(Long id, User user);
 }
