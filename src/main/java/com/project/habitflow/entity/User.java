@@ -1,5 +1,6 @@
 package com.project.habitflow.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -53,9 +54,11 @@ public class User implements UserDetails {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subscription_plan_id")
+    @JsonIgnore
     private SubscriptionPlan subscription;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Habit> habits = new ArrayList<>();
 
     public User() {}

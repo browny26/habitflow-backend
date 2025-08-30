@@ -14,6 +14,7 @@ public interface UserService {
     void updatePassword(PasswordUpdateRequest passwordUpdateRequest);
     List<UserResponse> getAllUsers();
     UserResponse getUserById(Long id);
+    User getUserEntityById(Long id);
     UserResponse updateCurrentUser(UserUpdateRequest request);
     UserResponse updateUserById(Long id, UserUpdateRequest request);
     void deleteUserById(Long id);

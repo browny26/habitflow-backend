@@ -7,16 +7,14 @@ import java.util.List;
 public class UserResponse {
 
     private long id;
-
     private String firstName;
-
     private String lastName;
-
     private String email;
+    private String role;
 
-    private User.Role role;
+    public UserResponse() {}
 
-    public UserResponse(long id, String firstName, String lastName, String email, User.Role role) {
+    public UserResponse(long id, String firstName, String lastName, String email, String role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,7 +54,7 @@ public class UserResponse {
         this.email = email;
     }
 
-    public User.Role getRole() { return role; }
+    public String getRole() { return role; }
 
-    public void setRole(User.Role role) { this.role = role; }
+    public void setRole(String role) { this.role = role; }
 }

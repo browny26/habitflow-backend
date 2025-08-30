@@ -1,6 +1,7 @@
 package com.project.habitflow.controller;
 
 import com.project.habitflow.entity.User;
+import com.project.habitflow.exception.UserNotFoundException;
 import com.project.habitflow.repository.UserRepository;
 import com.project.habitflow.request.PasswordUpdateRequest;
 import com.project.habitflow.request.UserUpdateRequest;
@@ -13,7 +14,10 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -62,8 +66,22 @@ public class UserController {
     @Operation(summary = "Get user by ID", description = "Retrieve user information by user ID (Admin only)")
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
-        UserResponse user = userService.getUserById(id);
-        return ResponseEntity.ok(user);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("Current authentication: " + auth);
+        System.out.println("Authorities: " + auth.getAuthorities());
+
+//        User user = userService.getUserEntityById(id);
+//        return ResponseEntity.ok(user);
+
+        try {
+            UserResponse user = userService.getUserById(id);
+            return ResponseEntity.ok(user);
+        } catch (UserNotFoundException ex) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "User with id " + id + " not found"
+            );
+        }
     }
 
     @PutMapping("/{id}")

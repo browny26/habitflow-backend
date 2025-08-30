@@ -6,14 +6,17 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class JwtServiceImpl implements JwtService{
@@ -37,7 +40,16 @@ public class JwtServiceImpl implements JwtService{
     @Override
     public List<String> extractRoles(String jwt) {
         Claims claims = extractAllClaims(jwt);
-        return claims.get("roles", List.class);
+        List<String> roles = claims.get("roles", List.class);
+
+        if (roles == null || roles.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        // Add ROLE_ prefix to each role if it's missing
+        return roles.stream()
+                .map(role -> role.startsWith("ROLE_") ? role : "ROLE_" + role)
+                .collect(Collectors.toList());
     }
 
     private Claims extractAllClaims(String token) {
@@ -64,6 +76,12 @@ public class JwtServiceImpl implements JwtService{
 
     @Override
     public String generateToken(Map<String, Object> claims, UserDetails userDetails) {
+
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
+
+        claims.put("roles", roles);
 
         return Jwts.builder()
                 .setClaims(claims)

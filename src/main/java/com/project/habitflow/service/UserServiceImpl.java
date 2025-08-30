@@ -60,8 +60,29 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
+    @Transactional(readOnly = true)
     public UserResponse getUserById(Long id) {
-        return userRepository.findById(id).map(UserMapper::toResponse)
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "User with id " + id + " not found"
+                ));
+        return convertToDto(user);
+    }
+
+    private UserResponse convertToDto(User user) {
+        return new UserResponse(
+                user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getRole().name()
+        );
+    }
+
+    @Override
+    public User getUserEntityById(Long id) {
+        return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
@@ -122,7 +143,7 @@ public class UserServiceImpl implements UserService{
                 user.getFirstName(),
                 user.getLastName(),
                 user.getEmail(),
-                user.getRole());
+                user.getRole().name());
     }
 
     private void updateFields(User user, UserUpdateRequest request) {
@@ -184,7 +205,7 @@ public class UserServiceImpl implements UserService{
                     user.getFirstName(),
                     user.getLastName(),
                     user.getEmail(),
-                    user.getRole()
+                    user.getRole().name()
             );
         }
     }

@@ -1,4 +1,4 @@
-package com.project.habitflow.service.impl;
+package com.project.habitflow.service;
 
 import com.project.habitflow.entity.Habit;
 import com.project.habitflow.entity.HabitLog;

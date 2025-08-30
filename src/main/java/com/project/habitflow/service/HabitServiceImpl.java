@@ -25,21 +25,43 @@ public class HabitServiceImpl implements HabitService {
     }
 
     @Override
-    public Habit createHabit(User user, String name) {
-        Habit habit = new Habit();
-        habit.setName(name);
-        habit.setUser(user);
+    public Habit createHabit(Habit habit, User user) {
+        habit.setUser(user); // collega l’habit all’utente autenticato
         return habitRepository.save(habit);
     }
 
     @Override
-    public Habit updateHabit(User user, Habit habit) {
-        return null;
+    public Habit updateHabit(Long id, Habit updatedHabit, User user) {
+        Habit existingHabit = habitRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Habit not found"));
+
+        if (!existingHabit.getUser().equals(user)) {
+            throw new AccessDeniedException("This habit doesn't belong to the user");
+        }
+
+        // aggiorna solo i campi modificabili
+        existingHabit.setName(updatedHabit.getName());
+        existingHabit.setDescription(updatedHabit.getDescription());
+        existingHabit.setActive(updatedHabit.isActive());
+
+        return habitRepository.save(existingHabit);
     }
 
     @Override
-    public void deleteHabit(User user, Habit habit) {
+    public void deleteHabit(Long id, User user) {
+        Habit existingHabit = habitRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Habit not found"));
 
+        if (!existingHabit.getUser().equals(user)) {
+            throw new AccessDeniedException("This habit doesn't belong to the user");
+        }
+
+        habitRepository.delete(existingHabit);
+    }
+
+    @Override
+    public List<Habit> getHabits(User user) {
+        return habitRepository.findByUser(user);
     }
 
     @Override
@@ -59,9 +81,16 @@ public class HabitServiceImpl implements HabitService {
         }
     }
 
-
     @Override
-    public List<Habit> getHabitsForUser(User user) {
-        return List.of();
+    public Habit getHabitById(Long id, User user) {
+        Habit habit = habitRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Habit not found"));
+
+        if (!habit.getUser().equals(user)) {
+            throw new AccessDeniedException("This habit doesn't belong to the user");
+        }
+
+        return habit;
     }
+
 }
