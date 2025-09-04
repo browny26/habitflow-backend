@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2c941ea8-5a81-459f-b354-b1c1dccf2807" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ai-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai-service/app/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai-service/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/request/AiRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postgres/initdb/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/postgres/initdb/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/HabitflowApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/HabitflowApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/config/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/AiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/AiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/AiFeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/AiFeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/HabitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/HabitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/HabitLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/HabitLogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/SubscriptionPlanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/SubscriptionPlanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/TrophyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/TrophyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/AiFeedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/AiFeedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/Habit.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/Habit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/HabitLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/HabitLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/SubscriptionPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/SubscriptionPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/Trophy.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/Trophy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/UserScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/UserScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/entity/UserTrophy.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/entity/UserTrophy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/exception/ExceptionResponses.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/exception/ExceptionResponses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/exception/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/mapper/HabitMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/mapper/HabitMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/AiFeedbackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/AiFeedbackRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/HabitLogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/HabitLogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/HabitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/HabitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/SubscriptionPlanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/SubscriptionPlanRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/TrophyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/TrophyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/UserScoreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/UserScoreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/repository/UserTrophyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/repository/UserTrophyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/request/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/request/AuthenticationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/request/HabitRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/request/HabitRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/request/PasswordUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/request/PasswordUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/request/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/request/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/request/UserUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/request/UserUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/response/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/response/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/response/HabitResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/response/HabitResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/response/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/response/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/response/UserScoreResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/response/UserScoreResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/response/UserStatsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/response/UserStatsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/AiAiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/AiAiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/AiFeedbackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/AiFeedbackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/AiFeedbackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/AiFeedbackServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/HabitLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/HabitLogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/HabitLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/HabitLogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/HabitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/HabitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/HabitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/HabitServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/JwtServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/SubscriptionPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/SubscriptionPlanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/SubscriptionPlanServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/SubscriptionPlanServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/TrophyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/TrophyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/TrophyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/TrophyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/util/FindAuthenticatedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/util/FindAuthenticatedUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/habitflow/util/FindAuthenticatedUserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/project/habitflow/util/FindAuthenticatedUserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/habitflow/HabitflowApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/project/habitflow/HabitflowApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Dockerfile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="30yUghyFyr1jWQu2Eq9RfgmDLw3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HabitflowApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/ai-setup&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Luisa Cerin/Downloads/habitflow&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luisa Cerin\Downloads\habitflow\ai-service" />
+      <recent name="C:\Users\Luisa Cerin\Downloads\habitflow\backend" />
+      <recent name="C:\Users\Luisa Cerin\Downloads\habitflow" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="HabitflowApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.habitflow.HabitflowApplication" />
+      <module name="habitflow" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.habitflow.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HabitflowApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2c941ea8-5a81-459f-b354-b1c1dccf2807" name="Changes" comment="" />
+      <created>1754599418684</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754599418684</updated>
+    </task>
+    <servers />
+  </component>
+</project>
